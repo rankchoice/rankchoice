@@ -7,7 +7,7 @@
   </thead>
   <tbody>
     <% @tally.each do |candidate, count| %>
-      <% name = @election.send("candidate#{candidate}") rescue "Lost Votes" %>
+      <% name = @election.send("candidate#{candidate}") rescue "Moot Votes" %>
       <% unless name.blank? %>
         <tr>
           <td>
