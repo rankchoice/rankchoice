@@ -44,7 +44,7 @@ function listVoters() {
 }
 
 function addVoter(voter, numberOfVotes) {
-    post('/accounts', voter);
+    return post('/accounts', voter);
 }
 
 module.exports = {addCandidate, addVoter, listCandidates, listVoters}; 

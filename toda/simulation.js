@@ -1,16 +1,27 @@
-var {candidate, voter}  =  require('./template');
-var {addVvoter, addCandidate} = require('./api');
+var {candidate, voter, vote}  =  require('./template');
+var { addVoter, addCandidate} = require('./api');
+var extend = require('extend');
 
 var candidates = [
-    Object.assign({}, candidate, {name:'A'}),
-    Object.assign({}, candidate, {name:'B'}),
+    extend( true, candidate, {data:{attributes:{contact:{"first-name":"A"}}}} ),
+    extend( true, candidate, {data:{attributes:{contact:{"first-name":"B"}}}} ),
+    extend( true, candidate, {data:{attributes:{contact:{"first-name":"C"}}}} ),
+
 ];
 
 var voters = [
-    Object.assign(voter, {name:'1'}),
-    Object.assign(voter, {name:'2'}),
+    extend( true, voter, {data:{attributes:{contact:{"first-name":"1"}}}} ),
+    extend( true, voter, {data:{attributes:{contact:{"first-name":"2"}}}} ),
+    extend( true, voter, {data:{attributes:{contact:{"first-name":"3"}}}} ),
+    extend( true, voter, {data:{attributes:{contact:{"first-name":"4"}}}} ),
+    extend( true, voter, {data:{attributes:{contact:{"first-name":"5"}}}} ),
+    extend( true, voter, {data:{attributes:{contact:{"first-name":"6"}}}} ),
 ];
 
 
 
-candidates.forEach(a => addCandidate(a));
+// candidates.forEach(addCandidate);
+// voters.forEach(addVoter);
+
+// addCandidate(candidates[0]).then(console.log);
+// addVoter(voters[0]).then(console.log);
