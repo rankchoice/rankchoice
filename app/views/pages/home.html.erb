@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to Rank Choice!</h1>
+
+<p>
+  This is a platform to run your very own
+  <%= link_to "rank choice voting", "https://en.wikipedia.org/wiki/Ranked_voting" %>
+  election.
+</p>
+
+<%= link_to "Create an election", new_election_path, class: "btn btn-primary" %>
+
+<br><br>
+
+<div>Inspired by:</div>
+<div>
+  <%= link_to "https://www.fairvote.org/" do %>
+    <%= image_tag "https://d3n8a8pro7vhmx.cloudfront.net/fairvote/sites/2/meta_images/original/FV-Logo_NoTagline_2color-dark-300.jpg?1473376072" %>
+  <% end %>
+</div>
