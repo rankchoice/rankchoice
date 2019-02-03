@@ -63,7 +63,7 @@ class ElectionsController < ApplicationController
 
   # GET /elections/1/result
   def result
-    ers = ElectionResultService.new(@election)
+    ers = ElectionResultService.new(@election, @election.votes)
     ers.run_election
     ers.tally_results
     @tally = ers.tally

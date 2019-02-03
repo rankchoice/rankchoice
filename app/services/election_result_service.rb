@@ -5,9 +5,9 @@ class ElectionResultService
   attr_reader :candidate_data
   attr_reader :tally
 
-  def initialize(election)
+  def initialize(election, votes)
     @election = election
-    @votes = @election.votes
+    @votes = votes
     @total_number_of_votes = @votes.size
     @winner = nil
     @lowest_vote_getter = nil
