@@ -21,7 +21,7 @@ class ElectionResultService
         votes: []
       }
     end
-    @candidate_data[:lost] = {
+    @candidate_data[:moot] = {
       votes: []
     }
 
@@ -114,7 +114,7 @@ class ElectionResultService
     choice = vote.choice(defeated_candidates)
 
     if choice.nil?
-      @candidate_data[:lost][:votes] += [vote]
+      @candidate_data[:moot][:votes] += [vote]
     else
       @candidate_data[choice][:votes] += [vote]
     end
