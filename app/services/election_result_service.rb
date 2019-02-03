@@ -9,10 +9,10 @@ class ElectionResultService
     @election = election
     @votes = votes
     @total_number_of_votes = @votes.size
-    @winner = nil
-    @lowest_vote_getter = nil
+    @winner = :moot
+    @lowest_vote_getter = :moot
     @max_number_of_votes = 0
-    @tally = nil
+    @tally = []
 
     @candidate_data = {}
     (0..CANDIDATES).each do |i|
