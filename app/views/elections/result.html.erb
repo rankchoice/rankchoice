@@ -12,18 +12,25 @@
 </div>
 <% end %>
 
-<dl class="dl-horizontal">
-  <dt><strong>Candidate</strong></dt>
-  <dd><strong>Votes</strong></dd>
-
-  <% @tally.each do |candidate, count| %>
-    <% name = @election.send("candidate#{candidate}") rescue "Moot Votes" %>
-    <% unless name.blank? %>
-      <dt><%= name %></dt>
-      <dd>
-        <%= count %>
-        <small>( <%= ((count / @total_votes.to_f) * 100).round(2) %>% )</small>
-      </dd>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Candidate</th>
+      <th>Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tally.each do |candidate, count| %>
+      <% name = @election.send("candidate#{candidate}") rescue "Moot Votes" %>
+      <% unless name.blank? %>
+      <tr>
+        <td class="col-md-4"><%= name %></td>
+        <td>
+          <%= count %>
+          <small>( <%= ((count / @total_votes.to_f) * 100).round(2) %>% )</small>
+        </td>
+      </tr>
+      <% end %>
     <% end %>
-  <% end %>
-</dl>
+  </tbody>
+</table>
