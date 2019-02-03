@@ -67,6 +67,8 @@ class ElectionsController < ApplicationController
     ers.run_election
     ers.tally_results
     @tally = ers.tally
+
+    @total_votes = @election.votes.size
   end
 
   private

@@ -2,7 +2,7 @@
 <div class="page-header">
   <h1>
     <%= @election.title %> Election Results
-    <small>Votes: <%= @election.votes.count %></small>
+    <small>Votes: <%= @total_votes %></small>
   </h1>
 </div>
 
@@ -13,11 +13,17 @@
 <% end %>
 
 <dl class="dl-horizontal">
+  <dt><strong>Candidate</strong></dt>
+  <dd><strong>Votes</strong></dd>
+
   <% @tally.each do |candidate, count| %>
     <% name = @election.send("candidate#{candidate}") rescue "Moot Votes" %>
     <% unless name.blank? %>
       <dt><%= name %></dt>
-      <dd><%= count %></dd>
+      <dd>
+        <%= count %>
+        <small>( <%= ((count / @total_votes.to_f) * 100).round(2) %>% )</small>
+      </dd>
     <% end %>
   <% end %>
 </dl>
