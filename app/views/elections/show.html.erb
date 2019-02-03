@@ -1,16 +1,18 @@
 <%- model_class = Election -%>
 <div class="page-header">
   <h1>
-    <%=t '.title', :default => model_class.model_name.human.titleize %>
+    <%= @election.title %> Election
     <small>Votes: <%= @election.votes.count %></small>
   </h1>
 </div>
 
+<% unless @election.description.blank? %>
+<div class="alert alert-success" role="alert">
+  <%= @election.description %>
+</div>
+<% end %>
+
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @election.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @election.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:candidate0) %>:</strong></dt>
   <dd><%= @election.candidate0 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:candidate1) %>:</strong></dt>
@@ -29,23 +31,11 @@
   <dd><%= @election.candidate7 %></dd>
   <dt><strong><%= model_class.human_attribute_name(:candidate8) %>:</strong></dt>
   <dd><%= @election.candidate8 %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:result) %>:</strong></dt>
-  <dd><%= @election.result %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:slug) %>:</strong></dt>
-  <dd><%= @election.slug %></dd>
+
+  <dt></dt>
+  <dd>
+    <br>
+    <%= link_to "Cast a Vote", new_vote_path(election_id: @election), class: "btn btn-primary" %>
+    <%= link_to "View Results", result_election_path(@election), class: "btn btn-default" %>
+  </dd>
 </dl>
-
-<%= link_to "Cast a Vote", new_vote_path(election_id: @election), class: "btn btn-primary" %>
-
-<br><br>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              elections_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_election_path(@election), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              election_path(@election),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-<%= link_to "Results", result_election_path(@election), class: "btn btn-primary" %>

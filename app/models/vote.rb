@@ -7,7 +7,6 @@ class Vote < ApplicationRecord
   def choice(defeated_already = [])
     (0..8).each do |i|
       val = send("choice#{i}")
-      p val
       return val if valid_choice?(val, defeated_already)
     end
     return nil
