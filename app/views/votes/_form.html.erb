@@ -1,0 +1,75 @@
+<%= form_for @vote, :html => { :class => "form-horizontal vote" } do |f| %>
+  <%= f.hidden_field :election_id %>
+  <div class="form-group">
+    <%= f.label :choice0, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :choice0, @election.candidate_options, { include_blank: true }, { :class => 'form-control' } %>
+    </div>
+    <%=f.error_span(:choice0) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :choice1, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :choice1, @election.candidate_options, { include_blank: true }, { :class => 'form-control' } %>
+    </div>
+    <%=f.error_span(:choice1) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :choice2, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :choice2, @election.candidate_options, { include_blank: true }, { :class => 'form-control' } %>
+    </div>
+    <%=f.error_span(:choice2) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :choice3, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :choice3, @election.candidate_options, { include_blank: true }, { :class => 'form-control' } %>
+    </div>
+    <%=f.error_span(:choice3) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :choice4, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :choice4, @election.candidate_options, { include_blank: true }, { :class => 'form-control' } %>
+    </div>
+    <%=f.error_span(:choice4) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :choice5, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :choice5, @election.candidate_options, { include_blank: true }, { :class => 'form-control' } %>
+    </div>
+    <%=f.error_span(:choice5) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :choice6, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :choice6, @election.candidate_options, { include_blank: true }, { :class => 'form-control' } %>
+    </div>
+    <%=f.error_span(:choice6) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :choice7, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :choice7, @election.candidate_options, { include_blank: true }, { :class => 'form-control' } %>
+    </div>
+    <%=f.error_span(:choice7) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :choice8, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :choice8, @election.candidate_options, { include_blank: true }, { :class => 'form-control' } %>
+    </div>
+    <%=f.error_span(:choice8) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                votes_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

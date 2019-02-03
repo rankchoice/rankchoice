@@ -1,0 +1,104 @@
+<%= form_for @election, :html => { :class => "form-horizontal election" } do |f| %>
+
+  <% if @election.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@election.errors.count, "error") %> prohibited this election from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @election.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:title) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :description, :rows => 3, :placeholder => "(optional)", :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:description) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :candidate0, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :candidate0, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:candidate0) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :candidate1, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :candidate1, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:candidate1) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :candidate2, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :candidate2, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:candidate2) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :candidate3, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :candidate3, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:candidate3) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :candidate4, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :candidate4, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:candidate4) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :candidate5, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :candidate5, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:candidate5) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :candidate6, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :candidate6, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:candidate6) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :candidate7, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :candidate7, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:candidate7) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :candidate8, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :candidate8, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:candidate8) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                elections_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

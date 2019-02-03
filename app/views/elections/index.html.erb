@@ -1,0 +1,62 @@
+<%- model_class = Election -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:candidate0) %></th>
+      <th><%= model_class.human_attribute_name(:candidate1) %></th>
+      <th><%= model_class.human_attribute_name(:candidate2) %></th>
+      <th><%= model_class.human_attribute_name(:candidate3) %></th>
+      <th><%= model_class.human_attribute_name(:candidate4) %></th>
+      <th><%= model_class.human_attribute_name(:candidate5) %></th>
+      <th><%= model_class.human_attribute_name(:candidate6) %></th>
+      <th><%= model_class.human_attribute_name(:candidate7) %></th>
+      <th><%= model_class.human_attribute_name(:candidate8) %></th>
+      <th><%= model_class.human_attribute_name(:result) %></th>
+      <th><%= model_class.human_attribute_name(:slug) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @elections.each do |election| %>
+      <tr>
+        <td><%= link_to election.id, election_path(election) %></td>
+        <td><%= election.title %></td>
+        <td><%= election.description %></td>
+        <td><%= election.candidate0 %></td>
+        <td><%= election.candidate1 %></td>
+        <td><%= election.candidate2 %></td>
+        <td><%= election.candidate3 %></td>
+        <td><%= election.candidate4 %></td>
+        <td><%= election.candidate5 %></td>
+        <td><%= election.candidate6 %></td>
+        <td><%= election.candidate7 %></td>
+        <td><%= election.candidate8 %></td>
+        <td><%= election.result %></td>
+        <td><%= election.slug %></td>
+        <td><%=l election.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      election_path(election), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_election_path(election), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      election_path(election),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_election_path,
+            :class => 'btn btn-primary' %>

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  candidate0: MyString
+  candidate1: MyString
+  candidate2: MyString
+  candidate3: MyString
+  candidate4: MyString
+  candidate5: MyString
+  candidate6: MyString
+  candidate7: MyString
+  candidate8: MyString
+  result: 1
+  slug: MyString
+
+two:
+  title: MyString
+  description: MyString
+  candidate0: MyString
+  candidate1: MyString
+  candidate2: MyString
+  candidate3: MyString
+  candidate4: MyString
+  candidate5: MyString
+  candidate6: MyString
+  candidate7: MyString
+  candidate8: MyString
+  result: 1
+  slug: MyString
