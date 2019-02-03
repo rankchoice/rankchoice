@@ -42,23 +42,6 @@ ActiveRecord::Schema.define(version: 2019_02_02_215928) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "candidate0"
-    t.string "candidate1"
-    t.string "candidate2"
-    t.string "candidate3"
-    t.string "candidate4"
-    t.string "candidate5"
-    t.string "candidate6"
-    t.string "candidate7"
-    t.string "candidate8"
-    t.integer "result"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "votes", force: :cascade do |t|
     t.integer "election_id"
     t.integer "choice0"
