@@ -2,6 +2,10 @@ class Vote < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged, slug_column: :slug
 
+  (0..8).each do |i|
+    validates_inclusion_of "choice#{i}", :in => 0..8, :on => :create, :message => "please vote for a valid candidate", :allow_blank => true
+  end
+
   belongs_to :election
 
   def choice(defeated_already = [])
