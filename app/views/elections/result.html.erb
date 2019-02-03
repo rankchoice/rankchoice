@@ -1,21 +1,23 @@
-<table>
-  <thead>
-    <tr>
-      <th>Candidate</th>
-      <th>Vote Count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tally.each do |candidate, count| %>
-      <% name = @election.send("candidate#{candidate}") rescue "Moot Votes" %>
-      <% unless name.blank? %>
-        <tr>
-          <td>
-            <%= name %>
-          </td>
-          <td><%= count %></td>
-        </tr>
-      <% end %>
+<%- model_class = Election -%>
+<div class="page-header">
+  <h1>
+    <%= @election.title %> Election Results
+    <small>Votes: <%= @election.votes.count %></small>
+  </h1>
+</div>
+
+<% unless @election.description.blank? %>
+<div class="alert alert-success" role="alert">
+  <%= @election.description %>
+</div>
+<% end %>
+
+<dl class="dl-horizontal">
+  <% @tally.each do |candidate, count| %>
+    <% name = @election.send("candidate#{candidate}") rescue "Moot Votes" %>
+    <% unless name.blank? %>
+      <dt><%= name %></dt>
+      <dd><%= count %></dd>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+</dl>
