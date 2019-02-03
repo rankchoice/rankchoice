@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Candidate</th>
+      <th>Vote Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tally.each do |candidate, count| %>
+      <tr>
+        <td>
+          <%= @election.send("candidate#{candidate}") rescue "Lost Votes" %>
+        </td>
+        <td><%= count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

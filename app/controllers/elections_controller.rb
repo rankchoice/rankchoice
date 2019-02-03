@@ -1,5 +1,5 @@
 class ElectionsController < ApplicationController
-  before_action :set_election, only: [:show, :edit, :update, :destroy]
+  before_action :set_election, only: [:show, :edit, :update, :destroy, :result]
 
   # GET /elections
   # GET /elections.json
@@ -59,6 +59,14 @@ class ElectionsController < ApplicationController
       format.html { redirect_to elections_url, notice: 'Election was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # GET /elections/1/result
+  def result
+    ers = ElectionResultService.new(@election)
+    ers.run_election
+    ers.tally_results
+    @tally = ers.tally
   end
 
   private
